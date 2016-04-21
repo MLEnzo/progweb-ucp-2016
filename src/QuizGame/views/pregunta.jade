@@ -1,0 +1,14 @@
+﻿extends layout
+
+block content
+  h1 #{descripcion} id #{id}
+  p pregunta #{descripcion} id #{id}
+
+  h2 ¿Cual es la respuesta?
+
+  
+  each r in respuestas
+    form(action="", method="get")
+        input(type="submit", name="respuesta", value="#{r.descripcion}")
+        input(type="hidden", name="respuestaId", value="#{r.id}")
+        input(type="hidden", name="preguntaId", value="#{id}")
