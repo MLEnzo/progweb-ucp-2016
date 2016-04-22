@@ -4,17 +4,13 @@ var router = express.Router();
 
 router.get('/listado', function (req, res) {
     
-    var partidaVm = { };
+    var partidaVm = {};
 
-    partidaVm.partidas = [
+        partidaVm.partidas = [
         { descripcion: 'Partida 1' },
         { descripcion: 'Partida 2' }
-    ];    
-    
-    for (var i = 0; i < length; i++) {
-    
-};
-    
+        ];    
+       
     
     
 
