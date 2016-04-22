@@ -2,11 +2,14 @@
 var router = express.Router();
 
 
-router.get('/:id', function (req, res) {
+router.get('/partida/:partidaId/pregunta/:preguntaId', function (req, res) {
     
-    var preguntadId = req.params.id;
+    var partidaId = req.params.partidaId;
+    var preguntadId = req.params.preguntaId;
+    console.log('partidaId:', partidaId);
     console.log('preguntadId:', preguntadId);
     
+
     var pregunta = {
         id : preguntadId,
         descripcion: '¿Cual es el color favorito?',
@@ -27,10 +30,16 @@ router.get('/:id', function (req, res) {
                 esCorrecta: false,
             }
         ]
-     }
+    }
+    
+    
+    var preguntaVm = {
+        partida: { id: 8 },
+        pregunta: pregunta
+    };
     
 
-    res.render('pregunta', pregunta);
+    res.render('pregunta', preguntaVm);
 });
 
 module.exports = router;
