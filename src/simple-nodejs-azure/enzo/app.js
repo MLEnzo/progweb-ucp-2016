@@ -37,27 +37,58 @@
         
         
         
-        var pregunta = {
-            id: 1,
-            descripcion : '¿Cual es la capital de Canada?',
-            respuestas : [
-                {
-                    id: 1,
-                    descripcion: 'Belmopan'
-                },
-                {
-                    id: 2,
-                    descripcion: 'Ottawa'
-                },
-                {
-                    id: 3,
-                    descripcion: 'Varsovia'
-                },
-            ]
-         
-   
-        };
+        var preguntas = [
+            
+            {
+                id: 0,
+                descripcion : '¿Cual es la capital de Canada?',
+                respuestas : [
+                    {
+                        id: 1,
+                        descripcion: 'Belmopan', 
+                        esCorrecta: false
+                    },
+                    {
+                        id: 2,
+                        descripcion: 'Ottawa',
+                        esCorrecta: true
+                    },
+                    {
+                        id: 3,
+                        descripcion: 'Varsovia',
+                        esCorrecta: false
+                    },
+                ]
+            },
+            {
+                id: 1,
+                descripcion : '¿Cual de estos paises tiene como capital a Caracas?',
+                respuestas : [
+                    {
+                        id: 1,
+                        descripcion: 'Brasil',
+                        esCorrecta: false
+                    },
+                    {
+                        id: 2,
+                        descripcion: 'Venezuela',
+                        esCorrecta: true
+                    },
+                    {
+                        id: 3,
+                        descripcion: 'Moscu',
+                        esCorrecta: false
+                    },
+                ]
+              
+            
+            }
+        ];
         
+        
+        var pregunta = preguntas[id];
+        
+
         var html = '';
         html += '<div class="row">';
         
@@ -75,15 +106,17 @@
         html += '<div class="col-md-offset-3 col-md-6 pregunta-respuestas">';
         
         
-        var p = pregunta.id;
-        var n;
+      
+        
+        
         
         for (i = 0; i < pregunta.respuestas.length; i++) {
             var r = pregunta.respuestas[i];
+
             html += '<form action="/enzo/demo.html" method="get">';
-            html += '<input type="hidden"name="pregunta"value="' + p + '"/>';
-            html += '<input type="submit" class="btn btn-primary col-md-12 col-xs-12"value="' + r.descripcion + '"/>';
-            html += '<input type="hidden"name="respuesta"value="' + r.id + '"/>';
+            html += '<input type="hidden"name="preguntaId"value="' + pregunta.id + '"/>';
+            html += '<input type="submit" '+ ColorBtn +' col-md-12 col-xs-12"value="' + r.descripcion + '"/>';
+            html += '<input type="hidden"name="respuestaId"value="' + r.id + '"/>';
             html += '';
             html += '</form>';
         }

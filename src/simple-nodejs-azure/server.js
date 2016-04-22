@@ -13,7 +13,8 @@ http.createServer(function (req, res) {
     }
     
     var cantidadItems = urlParseada['query'].cantidad || 1;
-
+    var preguntaId = urlParseada['query'].preguntaId || 1;
+    var respuestaId = urlParseada['query'].respuestaId || 1;
 
     //Verificar request
     var posicionBarra = req.url.toString().indexOf('/', 1);
@@ -41,7 +42,7 @@ http.createServer(function (req, res) {
         res.write('Nombre: ' + app.nombre());
         res.write('</h1>');
 
-        res.write(app.preguntaArmar(1));
+        res.write(app.preguntaArmar(preguntaId, respuestaId));
 
         res.write('</div>');  //div container-fluid
         res.write('<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>');

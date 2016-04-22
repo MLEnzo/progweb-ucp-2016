@@ -10,6 +10,13 @@ router.get('/listado', function (req, res) {
         { descripcion: 'Partida 1' },
         { descripcion: 'Partida 2' }
     ];    
+    
+    for (var i = 0; i < length; i++) {
+    
+};
+    
+    
+    
 
     res.render('partidaListado', partidaVm);
 });
